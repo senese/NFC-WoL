@@ -10,5 +10,6 @@ for _ in range (16):
     magic_packet += mac
 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+s.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
 s.connect(ADDR)
 s.send(magic_packet)
